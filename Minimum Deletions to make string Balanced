@@ -1,0 +1,22 @@
+#include <string>
+#include <algorithm>
+class Solution {
+public:
+    int minimumDeletions(std::string s) {
+        int deletions = 0;
+        int b_count = 0;
+
+        for (char c : s) {
+            if (c == 'b') {
+                b_count++;
+            } else {
+                if (b_count > 0) {
+                    deletions++;
+                    b_count--;
+                }
+            }
+        }
+
+        return deletions;
+    }
+};
